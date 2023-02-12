@@ -6,22 +6,22 @@ var fs = require('fs')
 var arrayOfItems;
 
 // UPDATE WITH YOUR LOCATION REFERENCE FROM STEP 4
-let locationRef = 'sydney'
+let locationRef = 'philly'
 
 // UPDATE WITH ITEMS YOU WANT TO SEARCH FOR
-let searchTerms = ['jeep', 'iphone']
+let searchTerms = ['iphone', 'car']
 
 const nodemailer = require('nodemailer');
 
 // UPDATE WITH EMAIL YOU WANT TO RECEIVE AT
-let emailRecipient = "recipient@email.com"
+let emailRecipient = "email@email.com"
 
 // UPDATE WITH YOUR SENDING EMAIL ACCOUNT
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'sending@email.com',
-      pass: 'email_password' 
+      user: 'username@gmail.com',
+      pass: 'password' 
     }
   });
 
@@ -88,9 +88,10 @@ async function getItems(){
     console.log('Updated past items')
   })
 }
-
+console.log('start');
+getItems()
 // TO CHANGE CRON TIME SCHEDULE
 // https://www.npmjs.com/package/node-cron
 cron.schedule('*/10 * * * *', function() {
-  getItems()
+	getItems()
 });
