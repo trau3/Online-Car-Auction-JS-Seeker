@@ -9,7 +9,7 @@ var arrayOfItems;
 let locationRef = 'philly'
 
 // UPDATE WITH ITEMS YOU WANT TO SEARCH FOR
-let searchTerms = ['iphone', 'car']
+let searchTerms = ['audi','toyota']
 
 const nodemailer = require('nodemailer');
 
@@ -57,9 +57,18 @@ async function getItems(){
     var newItems = [];
     var searchTerm = searchTerms[i].replace(/ /g,'%20');    
     console.log(`\nResults for ${searchTerms[i]}:\n`)
-    await page.goto(`https://www.facebook.com/marketplace/${locationRef}/search/?daysSinceListed=1&sortBy=best_match&query=${searchTerm}&exact=false`)
-    let bodyHTML = await page.evaluate(() => document.body.outerHTML);
-    let searchResult = JSON.parse(bodyHTML.split(/(?:"marketplace_search":|,"marketplace_seo_page")+/)[2]);
+    await page.goto(`https://www.iaai.com/Search?Keyword=${searchTerm}`, {waitUntil: 'networkidle0'});
+    //let source = await page.content();
+
+    //await page.waitForSelector('search_result_lot_detail_block ng-star-inserted'), {timeout: 5000}; // 
+    await page.screenshot({ path: `./screenshot=${searchTerm}.jpg`, type: "jpeg", fullPage: true });
+
+    let bodyHTML = await page.evaluate(() => document.querySelectorAll(".table-cell table-cell--data p-0"));
+    //let bodyHTML = await page.evaluate(() => document.body.outerHTML);
+
+    // facebook marketplace data parsing
+
+    /*let searchResult = JSON.parse(bodyHTML.split(/(?:"marketplace_search":|,"marketplace_seo_page")+/)[2]);
     let items = searchResult["feed_units"]["edges"]
     if (items.length > 1){
       items.forEach((val, index)=>{
@@ -80,18 +89,18 @@ async function getItems(){
     sendEmail(emailRecipient, searchTerms[i], newItems);
   } else {
     console.log('No new items for ' + searchTerms[i]);
-  }
+  }*/
   };
   await browser.close()
-  fs.writeFile('./pastItems.json', JSON.stringify(arrayOfItems), 'utf-8', function(err) {
+  /*fs.writeFile('./pastItems.json', JSON.stringify(arrayOfItems), 'utf-8', function(err) {
     if (err) throw err
     console.log('Updated past items')
-  })
+  })*/
 }
 console.log('start');
 getItems()
 // TO CHANGE CRON TIME SCHEDULE
 // https://www.npmjs.com/package/node-cron
-cron.schedule('*/10 * * * *', function() {
-	getItems()
-});
+//cron.schedule('*/10 * * * *', function() {
+//	getItems()
+// });
