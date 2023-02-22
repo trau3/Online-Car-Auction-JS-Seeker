@@ -11,13 +11,10 @@
 
 Section 704, Website, Puppeteer.JS, Web Scraping, Car Auctions
 
-## Project Abstract
+## Project Abstract /  High Level Requirements
 
 This project makes the process of searching for auction cars easier to find. Auctions are a good place to get used cars for a deal, but it’s difficult to find them. The main goal of this project is project is to make a website that makes websites like Copart and IAAI easier to use and assign working alerts to it. Users can search for items that may be listed and apply special filters to make their search easier. If there is enough time, more features will be added for other auction websites too so users can search through multiple websites at once. Users can subscribe to receive alerts when something new is posted.
 
-## High Level Requirement
-
-Describe the requirements – i.e., what the product does and how it does it from a user point of view – at a high level.
 
 ## Conceptual Design
 
