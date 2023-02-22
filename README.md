@@ -22,62 +22,6 @@ The main concept will be a website with a main search screen that provides extra
 The project will be based on https://github.com/ovdixon/marketplace-magpie, but this repository handles Facebook Marketplace. Facebook Marketplace can’t be scraped due to scraping being against the terms of service, but a fork of this repository was made for IAAI.com. More capabilities for other marketplaces will need to be developed. There is no UI, so this a website will need to be developed for users to interact. This can be done through one of the JavaScript libraries for websites. 
 
 
-```mermaid
----
-title: Animal example
----
-classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-```
-    
-```mermaid
-sequenceDiagram
-title Display Movie choices
-actor u as User
-participant m as mobile 
-participant l as Laravel Backend
-participant s as SQLite Database 
-participant i as IMDB
-activate u
-u ->> m: Login
-m ->> l: POST /api/sanctum/token with login cred
-l ->>+ s: check if user exists
-alt is a User
-s-->> l: User exists
-l -->> m : access token json 
-m ->> m : setToken(token)
-else 
-s -->>- l: does not exist
-l -->> m : 403 unauthorized
-m -->> u: try again
-end
-u->>+m: navigates to movie list
-m->>+i: GET /api/movies
-i-->>-m: return list of movies as json
-m-->>-u: display list of movies 
-deactivate u
-```
 
 ## Background
 There is one closed-source website like this proposed project, which is search tempest and auto tempest. In this website, it compiles a list of items from multiple marketplaces, but it does not generate information surrounding car auctions. Car auctions offer the benefit of getting a car for a lower price than it would be if it were sold at a dealership. In this project, the results will be directly displayed on the website by scraping the auction websites for the data. 
