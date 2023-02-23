@@ -32,7 +32,7 @@ There is one closed-source website like this proposed project, which is search t
 To develop this project, a server will be needed to keep the website running. One suggestion for this is to use a free Oracle server. Overall knowledge of JavaScript and Puppeteer JS is needed to parse the websites for the data. Knowledge of the limitations of certain websites will be needed when scraping, which can be found by putting looking at the {website address}/robots.txt file. Knowledge of building a website will be needed. A framework for the website will need to be chosen. Some SQL knowledge will need to be obtained as well. A UML diagram of the website will be needed for documentation.
 
 ## Proof of concept
-A forked repository was made that uses Node.js and puppeteer to get the info from IAAI.com. The script generates a screenshot of the website, but no data has been parsed yet. There are commented sections of code that show data parsing for Facebook Marketplace:
+A forked repository was made that uses Node.js and puppeteer to get the info from IAAI.com. The script generates a screenshot of the website, but no data has been parsed yet. There are commented sections of code that show data parsing for Facebook Marketplace (the source code was a Marketplace scraper):
 https://github.com/trau3/marketplace-magpie
 
 To run the program, Node.js must be installed. It can be downloaded here:
