@@ -24,7 +24,7 @@ The project will be based on https://github.com/ovdixon/marketplace-magpie, but 
 
 
 ## Background
-There is one closed-source website like this proposed project, which is search tempest and auto tempest. In this website, it compiles a list of items from multiple marketplaces, but it does not generate information surrounding car auctions. Car auctions offer the benefit of getting a car for a lower price than it would be if it were sold at a dealership. In this project, the results will be directly displayed on the website by scraping the auction websites for the data. 
+There is one closed-source website like this proposed project, which is search tempest and auto tempest. In this website, it compiles a list of items from multiple marketplaces, but it does not generate information surrounding car auctions. Car auctions offer the benefit of getting a car for a lower price than it would be if it were sold at a dealership. In this project, the results will be directly displayed on the website by scraping the auction websites for the data. There are some websites that already scrape data from IAAI and Copart, but they cost money and there is no UI. One benefit this website will provide is features like filtering out states that require a broker to make it easier to find the right auction car.
 
 
 ## Required Resources
